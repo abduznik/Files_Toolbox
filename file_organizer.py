@@ -33,7 +33,13 @@ class FileOrganizerApp:
                 file_ext = os.path.splitext(filename)[1].lower()
                 for category, extensions in file_types.items():
                     if file_ext in extensions:
-                        dest_dir = os.path.join(directory, category)
+                        if category == 'Programming':
+                            # Create a subdirectory for each programming file type
+                            subcategory = file_ext.lstrip('.').upper()
+                            dest_dir = os.path.join(directory, category, subcategory)
+                        else:
+                            dest_dir = os.path.join(directory, category)
+
                         if not os.path.exists(dest_dir):
                             os.makedirs(dest_dir)
                         shutil.move(filepath, dest_dir)
@@ -45,7 +51,6 @@ class FileOrganizerApp:
                     shutil.move(filepath, dest_dir)
 
         messagebox.showinfo("Success", "Files organized by type successfully.")
-
     def select_directory(self):
         directory = filedialog.askdirectory()
         if not directory:
