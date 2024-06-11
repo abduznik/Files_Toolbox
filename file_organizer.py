@@ -21,9 +21,13 @@ class FileOrganizerApp:
 
     def organize_files_by_type(self, directory):
         file_types = {
-            'Videos': ['.mp4', '.avi', '.mkv'],
-            'Images': ['.jpg', '.jpeg', '.png', '.gif'],
+            'Videos': ['.mp4', '.avi', '.mkv', '.wmv', '.mov', '.flv'],
+            'Images': ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.svg'],
+            'Audio': ['.mp3', '.wav', '.flac', '.aac', '.ogg', '.wma'],
+            'Documents': ['.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.txt'],
             'Programming': ['.py', '.java', '.cpp', '.c', '.html', '.css', '.js', '.php', '.xml'],
+            'Apps': ['.exe', '.msi', '.app', '.dmg'],
+            'Archives': ['.zip', '.rar', '.7z', '.tar', '.gz'],
             'Etc': []
         }
 
